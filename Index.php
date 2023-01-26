@@ -34,8 +34,9 @@
 
             <nav id="navbar">
                 <ul>
-                    <li><a href="">Inicio</a></li>
-                    <li><a href="">Nosotros</a></li>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#promo">Promos</a></li>
                     <li><a href="">Menu</a></li>
                     <li><a href="">Reseñas</a></li>
                     <li><a href="">Contacto</a></li>
@@ -60,8 +61,63 @@
 
     <section id="about">
         <div class="center">
-            <h2 class="section-title">-Quienes somos-</h2>
+            <h2 class="section-title">-Sobre nosotros-</h2>
+            <div class="about-info">
+                <img src="./Assets/Img/Logo.png" alt="Logo">
+                <div>
+                    <h2>Somos BurguerStore</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, ipsa numquam cupiditate repellat ullam veritatis, consequuntur hic quas tenetur eveniet aliquid vitae. Incidunt excepturi deleniti dolore magnam molestiae quidem perferendis.
+                    </p>
+                    <div class="check-about">
+                        <span><i class="fas fa-check-square"></i> Ingredientes frescos</span>
+                        <span><i class="fas fa-check-square"></i> Buenos precios</span>
+                        <span><i class="fas fa-check-square"></i> Queso natural</span>
+                        <span><i class="fas fa-check-square"></i> Productos veganos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-services">
+                <div class="about-service__card">
+                    <img src="./Assets/Img/fast-delivery.png" alt="Delivery">
+                    <h4>Delivery rápido</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                </div>
+
+                <div class="about-service__card">
+                    <img src="./Assets/Img/best-price.png" alt="Delivery">
+                    <h4>Buenos precios</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                </div>
+
+                <div class="about-service__card">
+                    <img src="./Assets/Img/burguer.png" alt="Delivery">
+                    <h4>Buena calidad</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
         </div>
     </section>
+
+
+    <section id="promo">
+        <div class="center">
+            <h2 class="section-title">-Nuestras promos-</h2>
+            <div class="div-promos">
+                <img src="./Assets/Img/Promo1.png" alt="Promo1">
+                <img src="./Assets/Img/Promo2.png" alt="Promo2">
+                <img src="./Assets/Img/Promo3.png" alt="Promo3">
+            </div>
+
+            <div class="div-promos">
+                <img src="./Assets/Img/Promo4.png" alt="Promo4">
+                <img src="./Assets/Img/Promo5.png" alt="Promo5">
+                <img src="./Assets/Img/Promo6.png" alt="Promo6">
+            </div>
+        </div>
+    </section>
+
+   
 </body>
 </html>
