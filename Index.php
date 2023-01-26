@@ -37,7 +37,7 @@
                     <li><a href="#">Inicio</a></li>
                     <li><a href="#about">Nosotros</a></li>
                     <li><a href="#promo">Promos</a></li>
-                    <li><a href="">Menu</a></li>
+                    <li><a href="#menu">Menu</a></li>
                     <li><a href="">Reseñas</a></li>
                     <li><a href="">Contacto</a></li>
                 </ul>
@@ -118,6 +118,13 @@
         </div>
     </section>
 
+
+
+    <section id="menu">
+        <div class="center">
+            <h2 class="section-title">-Menú-</h2>
+        </div>
+    </section>
    
 </body>
 </html>
