@@ -43,8 +43,8 @@
                     <li><a href="#about">Nosotros</a></li>
                     <li><a href="#promo">Promos</a></li>
                     <li><a href="#menu">Menu</a></li>
-                    <li><a href="">Reseñas</a></li>
-                    <li><a href="">Contacto</a></li>
+                    <li><a href="#reviews">Reseñas</a></li>
+                    <li><a href="#contact">Contacto</a></li>
                 </ul>
             </nav>
 
@@ -146,5 +146,72 @@
         </div>
     </section>
    
+
+    <section id="reviews">
+        <div class="center">
+            <h2 class="section-title">-Que dicen nuestros clientes-</h2>
+            <div class="review-container">
+                <div class="review-card">
+                    <img src="./Assets/Img/Person1.jfif" alt="Persona1">
+                    <h2>Roberto</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae laudantium veniam, amet vero earum nostrum pariatur totam modi!</p>
+                    <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                </div> 
+                
+                <div class="review-card">
+                <img src="./Assets/Img/Person2.jfif" alt="Persona1">
+                    <h2>Jimena</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae laudantium veniam, amet vero earum nostrum pariatur totam modi!</p>
+                    <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                </div> 
+
+                <div class="review-card">
+                <img src="./Assets/Img/Person3.jfif" alt="Persona1">
+                    <h2>Maximiliano</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae laudantium veniam, amet vero earum nostrum pariatur totam modi!</p>
+                    <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="contact">
+        <div class="center">
+            <h2 class="section-title">-Contacto-</h2>
+            <div class="contact-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.776355779249!2d-58.39480014957726!3d-34.60981636523121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccac2cd859503%3A0x75cdafaaef2b946!2sCongreso%20de%20la%20Naci%C3%B3n%20Argentina!5e0!3m2!1ses-419!2sar!4v1674779714780!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="contact-div">
+                    <div class="contact-div__info">
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <h5>Email</h5>
+                            <p>burguershop@email.com</p>
+                        </div>
+
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <h5>Teléfono</h5>
+                            <p>(54 11) 4999-1200</p>
+                        </div>
+
+                        <div>
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h5>Dirección</h5>
+                            <p>Av. Lorem Ipsum 1200</p>
+                        </div>
+                    </div>
+
+                    <form action="" autocomplete="off">
+                        <input type="text" name="name" placeholder="Ingrese su nombre">
+                        <input type="email" name="email" placeholder="Ingrese su correo">
+                        <input type="number" name="phone" placeholder="Ingrese su teléfono">
+                        <input type="submit" value="Enviar">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
