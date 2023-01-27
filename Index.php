@@ -1,6 +1,8 @@
 <?php
     require_once('./Config/Connection.php');
+    session_start();
 
+   
 ?>
 
 <!DOCTYPE html>
@@ -18,13 +20,33 @@
 <body>
     <section id="login">
         <i class="fas fa-times close"></i>
-        <form action="" autocomplete="off">
-            <h2>Login</h2>
-            <input type="text" name="username" placeholder="Usuario">
-            <input type="text" name="password" placeholder="Contraseña">
-            <input type="submit" value="Ingresar">
-            <a href="#">¿No tiene cuenta? Regístrese acá</a>
-        </form>
+        <div class="div_forms">
+            <form action="" autocomplete="off" class="div_forms--login">
+                <h2>Login</h2>
+                <input type="email" name="email" placeholder="Correo Electrónico">
+                <input type="password" name="password" placeholder="Contraseña">
+                <input type="submit" value="Ingresar">
+            </form>
+
+            <form action="./Functionalities/Register.php" method="POST" autocomplete="off">
+                <h2>Registro</h2>
+                <?php if($_SESSION['register'] == true) : ?>
+                    <div class="success">
+                        Registro exitoso!!!
+                    </div>
+                <?php else: ?>
+                    <div class="failed">
+                        Registro fallido
+                    </div>
+                <?php endif; ?>
+                <input type="email" name="email" placeholder="Correo Electrónico" required>
+                <input type="number" name="dni" placeholder="Dni" required>
+                <input type="text" name="address" placeholder="Direccion" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="submit" value="Registrarse">
+            </form>
+        </div>
+        
     </section>
 
     <section id="div-contact-header">
@@ -270,3 +292,4 @@
     <script src="./Main.js"></script>
 </body>
 </html>
+
