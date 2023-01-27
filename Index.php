@@ -235,6 +235,25 @@
     </section>
 
 
+
+    <footer id="footer">
+        <div class="center">
+            <div class="footer-nav">
+                    <a href="#">Inicio</a>
+                    <a href="#about">Nosotros</a>
+                    <a href="#promo">Promos</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#reviews">Reseñas</a>
+                    <a href="#contact">Contacto</a>
+            </div>
+
+            <div class="footer-copy">
+                Burguer Store &copy;2023 Todos los derechos reservados
+            </div>
+        </div>
+    </footer>
+
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./Main.js"></script>
 </body>
