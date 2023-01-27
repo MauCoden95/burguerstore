@@ -21,35 +21,51 @@
     <section id="login">
         <i class="fas fa-times close"></i>
         <div class="div_forms">
-            <form action="./Functionalities/Login.php" method="POST" autocomplete="off" class="div_forms--login">
-                <h2>Login</h2>
-                <?php if(isset($_SESSION['login_failed'])) : ?>
-                    <div class="failed">
-                        <?= $_SESSION['login_failed'] ?>
-                    </div>
-                <?php endif; ?>
-                <input type="email" name="email" placeholder="Correo Electrónico" required>
-                <input type="password" name="password" placeholder="Contraseña" required>
-                <input type="submit" value="Ingresar">
-            </form>
+            <?php if(isset($_SESSION['identity'])) : ?>
+                <form action="" method="POST" autocomplete="off">
+                    <h2>Actualizar datos</h2>
+                    
+                    <input type="email" name="email" placeholder="Correo Electrónico" required>
+                    <input type="number" name="dni" placeholder="Dni" required>
+                    <input type="text" name="address" placeholder="Direccion" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <input type="submit" value="Actualizar datos">
 
-            <form action="./Functionalities/Register.php" method="POST" autocomplete="off">
-                <h2>Registro</h2>
-                <?php if(isset($_SESSION['register_success'])) : ?>
-                    <div class="success">
-                        Registro exitoso!!!
-                    </div>
-                <?php elseif(isset($_SESSION['register_failed'])): ?>
-                    <div class="failed">
-                        Registro fallido
-                    </div>
-                <?php endif; ?>
-                <input type="email" name="email" placeholder="Correo Electrónico" required>
-                <input type="number" name="dni" placeholder="Dni" required>
-                <input type="text" name="address" placeholder="Direccion" required>
-                <input type="password" name="password" placeholder="Contraseña" required>
-                <input type="submit" value="Registrarse">
-            </form>
+                    <a href="./Functionalities/Logout.php" class="logout">Cerrar sesión</a>
+                </form>
+
+
+            <?php else: ?>
+                <form action="./Functionalities/Login.php" method="POST" autocomplete="off" class="div_forms--login">
+                    <h2>Login</h2>
+                    <?php if(isset($_SESSION['login_failed'])) : ?>
+                        <div class="failed">
+                            <?= $_SESSION['login_failed'] ?>
+                        </div>
+                    <?php endif; ?>
+                    <input type="email" name="email" placeholder="Correo Electrónico" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <input type="submit" value="Ingresar">
+                </form>
+
+                <form action="./Functionalities/Register.php" method="POST" autocomplete="off">
+                    <h2>Registro</h2>
+                    <?php if(isset($_SESSION['register_success'])) : ?>
+                        <div class="success">
+                            Registro exitoso!!!
+                        </div>
+                    <?php elseif(isset($_SESSION['register_failed'])): ?>
+                        <div class="failed">
+                            Registro fallido
+                        </div>
+                    <?php endif; ?>
+                    <input type="email" name="email" placeholder="Correo Electrónico" required>
+                    <input type="number" name="dni" placeholder="Dni" required>
+                    <input type="text" name="address" placeholder="Direccion" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <input type="submit" value="Registrarse">
+                </form>
+            <?php endif; ?>
         </div>
         
     </section>
@@ -66,7 +82,7 @@
                 <a href="" class="fab fa-twitter"></a>
                 <a href="" class="fab fa-linkedin"></a>
                 <?php if(isset($_SESSION['identity'])) : ?>
-                    <a href="./Functionalities/Logout.php"><?= $_SESSION['identity']['email'] ?></a>
+                    <button class="div-contact-header-2-a"><?= $_SESSION['identity']['email'] ?></button>
                 <?php else: ?>
                     <button class="div-contact-header-2-a">Login</button>    
                 <?php endif; ?>
@@ -81,7 +97,9 @@
         <div class="center">
             <img src="./Assets/Img/Logo.png" alt="Logo">
 
-            <nav id="navbar">
+            <button class="btn_navbar"><i class="fas fa-bars"></i></button>
+
+            <nav id="navbar" class="active">
                 <ul>
                     <li><a href="#">Inicio</a></li>
                     <li><a href="#about">Nosotros</a></li>
@@ -301,7 +319,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./Main.js"></script>
 
-    
+  
 </body>
 </html>
 

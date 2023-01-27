@@ -13,5 +13,15 @@ loginBtn.addEventListener('click', () => {
 });
 
 loginBtnclose.addEventListener('click', () => {
-    login.style.top = "-65rem";
+    login.style.top = "-150rem";
 });
+
+
+
+const btnMenu = document.querySelector('.btn_navbar');
+const nav = document.querySelector('#navbar');
+
+
+btnMenu.addEventListener('click', () => {
+    nav.classList.toggle('active');
+})

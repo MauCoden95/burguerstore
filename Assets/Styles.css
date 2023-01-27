@@ -68,13 +68,25 @@ body{
     padding: 1rem;
 }
 
+.logout:hover{
+    background: rgb(255, 127, 127);
+}
 
+.logout{
+    width: 40%;
+    display: block;
+    color: #fff !important;
+    background: #f00;
+    padding: 1rem;
+    font-size: 1rem;
+    text-decoration: none;
+}
 
 
 /*LOGIN*/
 #login{
     position: fixed;
-    top: -65rem;
+    top: -150rem;
     width: 100vw;
     height: 100vh;
     background: rgba(34, 34, 34, .8);
@@ -94,14 +106,14 @@ body{
 }
 
 #login .div_forms{
-    width: 60%;
+    min-width: 60%;
     min-height: 40rem;
     background: rgb(255, 255, 255);
     border-radius: 2rem;
     padding: 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 
@@ -143,6 +155,8 @@ body{
     margin: 2rem auto;
     color: var(--color);
 }
+
+
 
 .div_forms--login{
     border-right: .1rem solid var(--color);
@@ -201,6 +215,7 @@ body{
 
 /*HEADER*/
 #header{
+    position: relative;
     width: 100%;
     height: 8rem;
 }
@@ -242,6 +257,16 @@ body{
 #navbar ul li a:hover{
     text-decoration: none;
     color: var(--color-secundario);
+}
+
+.btn_navbar{
+    display: none;
+    font-size: 2rem;
+    border: .1rem solid #fff;
+    padding: 1rem;
+    cursor: pointer;
+    background: transparent;
+    color: #fff;
 }
 
 .header-info{
@@ -461,7 +486,7 @@ body{
 }
 
 .menu-container__card h2{
-    font-size: 3rem;
+    font-size: 2.3rem;
     text-align: center;
     margin: 2rem 0;
     color: #fff;
@@ -677,4 +702,150 @@ body{
     justify-content: center;
     font-size: 3rem;
     color: var(--color-secundario);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+    html{
+        font-size: 45%;
+    }
+
+    .center{
+        width: 90%;
+    }
+
+    #div-contact-header{
+        min-height: 10rem;
+    }
+
+    #div-contact-header .center{
+        flex-direction: column;
+    }
+
+    .div-contact-header-2{
+        margin-bottom: 2rem;
+    }
+
+    #navbar{
+        width: 60%;
+    }
+
+    .menu-container__card h2{
+        font-size: 2rem;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    html{
+        font-size: 40%;
+    }
+    
+    #banner h1{
+        font-size: 4.5rem;
+    }
+
+    .contact-div__info p{
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .btn_navbar{
+        display: block;
+    }
+
+    #header .center img{
+        width: 20%;
+    }
+    
+    #navbar{
+        width: 80%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 8rem;
+        margin: auto;
+        height: 40rem;
+        background: var(--color);
+        z-index: 1000;
+        transition: all 300ms;
+    }
+
+    #navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    #navbar ul{
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    #navbar ul li{
+        display: block;
+        width: 100%;
+        text-align: center;
+        background: #777;
+        padding: 1.5rem;
+        cursor: pointer;
+    }
+
+    .header-info{
+        width: 18%;
+    }
+
+    .header-info h3{
+        font-size: 1.5;
+    }
+
+    #banner h1{
+        font-size: 3.5rem;
+    }
+
+    .about-info{
+        flex-direction: column;
+    }
+
+    .about-info img,
+    .about-info div{
+        width: 80%;
+    }
+
+    .about-service__card img{
+        width: 70%;
+    }
+
+    .menu-container__card h2{
+        font-size: 1.5rem;
+    }
+
+    .review-card h2{
+        font-size: 2rem;
+    }
+
+    .contact-container{
+        flex-direction: column;
+    }
+
+    .contact-container iframe,
+    .contact-div{
+        width: 100%;
+    }
 }
