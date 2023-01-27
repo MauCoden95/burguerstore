@@ -21,6 +21,7 @@ html{
 
 body{
     background: url('../Assets/Img/background.jpg');
+    position: relative;
 }
 
 .center{
@@ -52,6 +53,69 @@ body{
 
 
 
+
+
+
+/*LOGIN*/
+#login{
+    position: fixed;
+    top: -65rem;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(34, 34, 34, .8);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 700ms;
+}
+.close{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 2rem;
+    font-size: 8rem;
+    color: #fff;
+}
+
+#login form{
+    width: 40rem;
+    height: 35rem;
+    background: #fff;
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+#login form h2{
+    font-size: 3rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+#login form input{
+    display: block;
+    width: 95%;
+    font-size: 2rem;
+    padding: 1rem;
+    margin: 2rem auto;
+    border: .1rem solid var(--color-secundario);
+}
+
+#login form input[type="submit"]{
+    cursor: pointer;
+}
+
+#login form input[type="submit"]:hover{
+    background: var(--color-secundario);
+}
+
+#login form a{
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 2rem auto;
+    color: var(--color);
+}
 
 
 
@@ -92,9 +156,15 @@ body{
     color: var(--color-secundario);
 }
 
-.div-contact-header-2 a:last-child{
+.div-contact-header-2 button{
+    background: transparent;
+    border: none;
     border-left: .1rem solid #fff;
     padding: 0 0 0 2rem;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 1rem;
 }
 
 

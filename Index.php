@@ -16,6 +16,17 @@
     <title>BurguerStore</title>
 </head>
 <body>
+    <section id="login">
+        <i class="fas fa-times close"></i>
+        <form action="" autocomplete="off">
+            <h2>Login</h2>
+            <input type="text" name="username" placeholder="Usuario">
+            <input type="text" name="password" placeholder="Contraseña">
+            <input type="submit" value="Ingresar">
+            <a href="#">¿No tiene cuenta? Regístrese acá</a>
+        </form>
+    </section>
+
     <section id="div-contact-header">
         <div class="center">
             <div class="div-contact-header-1">
@@ -27,7 +38,7 @@
                 <a href="" class="fab fa-instagram"></a>
                 <a href="" class="fab fa-twitter"></a>
                 <a href="" class="fab fa-linkedin"></a>
-                <a href="" class="div-contact-header-2-a">Login</a>
+                <button class="div-contact-header-2-a">Login</button>
             </div>
         </div>
         
@@ -66,13 +77,13 @@
 
 
     <section id="about">
-        <div data-aos="fade-right">
             <div class="center">
                 <h2 class="section-title">-Sobre nosotros-</h2>
+                <div data-aos="fade-right">
                 <div class="about-info">
                     <img src="./Assets/Img/Logo.png" alt="Logo">
                     <div>
-                        <h2>Somos BurguerStore</h2>
+                        <h2>Somos Burguer Store</h2>
                         <p>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, ipsa numquam cupiditate repellat ullam veritatis, consequuntur hic quas tenetur eveniet aliquid vitae. Incidunt excepturi deleniti dolore magnam molestiae quidem perferendis.
                         </p>
@@ -103,9 +114,10 @@
                         <h4>Buena calidad</h4>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                     </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        
         
     </section>
 
@@ -217,7 +229,7 @@
                             <div>
                                 <i class="fas fa-map-marked-alt"></i>
                                 <h5>Dirección</h5>
-                                <p>Av. Lorem Ipsum 1200</p>
+                                <p>Av. Lorem Ipsum 1200, CABA</p>
                             </div>
                         </div>
 
