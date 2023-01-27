@@ -1,3 +1,8 @@
+<?php
+    require_once('./Config/Connection.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,6 +128,21 @@
     <section id="menu">
         <div class="center">
             <h2 class="section-title">-Menú-</h2>
+            <div class="menu-container">
+                <?php
+                    $query = mysqli_query($connection,"SELECT * FROM burguers");
+                    while ($view = mysqli_fetch_assoc($query)):                    
+                ?>
+                    <div class="menu-container__card">
+                        <img src="./Assets/Img/<?= $view['image'] ?>">
+                        <h2><?= $view['name'] ?></h2>
+                        <p><?= $view['price'] ?> $</p>
+                        <a href="">Añadir al carrito <i class="fas fa-shopping-cart"></i></a>
+                    </div>
+
+
+                <?php endwhile; ?>
+            </div>
         </div>
     </section>
    
