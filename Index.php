@@ -21,20 +21,25 @@
     <section id="login">
         <i class="fas fa-times close"></i>
         <div class="div_forms">
-            <form action="" autocomplete="off" class="div_forms--login">
+            <form action="./Functionalities/Login.php" method="POST" autocomplete="off" class="div_forms--login">
                 <h2>Login</h2>
-                <input type="email" name="email" placeholder="Correo Electrónico">
-                <input type="password" name="password" placeholder="Contraseña">
+                <?php if(isset($_SESSION['login_failed'])) : ?>
+                    <div class="failed">
+                        <?= $_SESSION['login_failed'] ?>
+                    </div>
+                <?php endif; ?>
+                <input type="email" name="email" placeholder="Correo Electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
                 <input type="submit" value="Ingresar">
             </form>
 
             <form action="./Functionalities/Register.php" method="POST" autocomplete="off">
                 <h2>Registro</h2>
-                <?php if($_SESSION['register'] == true) : ?>
+                <?php if(isset($_SESSION['register_success'])) : ?>
                     <div class="success">
                         Registro exitoso!!!
                     </div>
-                <?php else: ?>
+                <?php elseif(isset($_SESSION['register_failed'])): ?>
                     <div class="failed">
                         Registro fallido
                     </div>
@@ -60,7 +65,12 @@
                 <a href="" class="fab fa-instagram"></a>
                 <a href="" class="fab fa-twitter"></a>
                 <a href="" class="fab fa-linkedin"></a>
-                <button class="div-contact-header-2-a">Login</button>
+                <?php if(isset($_SESSION['identity'])) : ?>
+                    <a href="./Functionalities/Logout.php"><?= $_SESSION['identity']['email'] ?></a>
+                <?php else: ?>
+                    <button class="div-contact-header-2-a">Login</button>    
+                <?php endif; ?>
+                
             </div>
         </div>
         
@@ -290,6 +300,8 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./Main.js"></script>
+
+    
 </body>
 </html>
 

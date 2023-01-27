@@ -15,12 +15,12 @@
         $query = mysqli_query($connection,$sql);
 
         if ($query) {
-            $_SESSION['register'] = true;
+            $_SESSION['register_success'] = "Registro exitoso!!!";
         }else{
-            $_SESSION['register'] = false;
+            $_SESSION['register_failed'] = "Registro fallido";
         }
     }
 
-header('Location: ../Index.php');
+    header('Location: ../Index.php');
 
 ?>
