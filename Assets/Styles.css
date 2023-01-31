@@ -210,6 +210,9 @@ body{
     margin-left: 1rem;
 }
 
+.div-contact-header-2 button:last-child{
+    border: none;
+}
 
 
 
@@ -462,6 +465,12 @@ body{
     min-height: 90%;
 }
 
+#menu .center p{
+    font-size: 2rem;
+    text-align: center;
+    color: #fff;
+}
+
 .menu-container{
     width: 100%;
     height: 100%;
@@ -485,18 +494,30 @@ body{
     margin: 2rem auto;
 }
 
-.menu-container__card h2{
-    font-size: 2.3rem;
-    text-align: center;
-    margin: 2rem 0;
-    color: #fff;
+
+.ipt_name,
+.ipt_price{
+    display: block;
+    background: transparent;
+    border: none;
 }
 
-.menu-container__card p{
+.ipt_price{
     font-size: 2rem;
     text-align: center;
-    margin: 2rem 0;
-    color: var(--color-secundario);
+    margin: 2rem auto;
+    color: var(--color);
+}
+
+.ipt_name{
+    color: #f9b209;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.ipt_img{
+    display: none;
 }
 
 .menu-container__card a{
@@ -507,10 +528,11 @@ body{
     color: var(--color-secundario);
     padding: 1rem;
     border: .1rem solid var(--color-secundario);
+    cursor: pointer;
 }
 
 .menu-container__card a:hover{
-    background: rgba(255, 202, 79, 0.4);
+    background: rgba(255, 215, 121, 0.4);
 }
 
 
@@ -659,6 +681,46 @@ body{
     background: rgba(243, 194, 81, .6);
 }
 
+/*----------------------*/
+#reviews{
+    padding-top: 0;
+ }
+
+ #reviews .box{
+    text-align: center;
+    user-select: none;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    background: rgba(179, 179, 179, .6);
+    border-radius: 5rem;
+    margin-top: 8rem;
+ }
+ 
+ #reviews .box img{
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+ }
+ 
+ #reviews .box h3{
+    margin: 1.5rem 0;
+    font-size: 2rem;
+    color: var(--sub-color);
+ }
+ 
+ #reviews .box p{
+    line-height: 2;
+    font-size: 1.5rem;
+    color: var(--sub-color);
+ }
+ /*----------------------*/
+
+
+
+
+
+
 
 
 
@@ -774,6 +836,19 @@ body{
 
     #header .center img{
         width: 20%;
+    }
+
+    #login .div_forms{
+        flex-direction: column;
+    }
+
+    .div_forms--login{
+        border-right: none;
+        border-bottom: .1rem solid var(--color);
+    }
+
+    #login form{
+        width: 100%;
     }
     
     #navbar{

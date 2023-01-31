@@ -11,10 +11,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./Assets/Styles.css">
     <link rel="shortcut icon" href="./Assets/Img/Logo.png" type="image/x-icon">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7483adbd94.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <title>BurguerStore</title>
 </head>
 <body>
@@ -82,6 +84,7 @@
                 <a href="" class="fab fa-twitter"></a>
                 <a href="" class="fab fa-linkedin"></a>
                 <?php if(isset($_SESSION['identity'])) : ?>
+                    <button class="div-contact-header-2-cart">(0)<i class="fas fa-shopping-cart"></i></button>
                     <button class="div-contact-header-2-a"><?= $_SESSION['identity']['email'] ?></button>
                 <?php else: ?>
                     <button class="div-contact-header-2-a">Login</button>    
@@ -200,6 +203,7 @@
     <section id="menu">
         <div class="center">
             <h2 class="section-title">-Menú-</h2>
+            <p>Tenés que estar logueado para agregar productos al carrito</p>
             <div data-aos="fade-up">
                 <div class="menu-container">
                     <?php
@@ -209,9 +213,16 @@
                         
                         <div class="menu-container__card">
                             <img src="./Assets/Img/<?= $view['image'] ?>">
-                            <h2><?= $view['name'] ?></h2>
-                            <p><?= $view['price'] ?> $</p>
-                            <a href="">Añadir al carrito <i class="fas fa-shopping-cart"></i></a>
+                            <input type="text" name="name" placeholder="<?= $view['name'] ?>" class="ipt_name" readonly disabled>
+                            <input type="number" name="price" placeholder="<?= $view['price'] ?>" class="ipt_price" readonly disabled>
+                            <input type="text" name="image" placeholder="<?= $view['image'] ?>" class="ipt_img">
+
+                            <?php if(isset($_SESSION['identity'])) : ?>
+                                <a href="./Functionalities/Cart.php">Añadir al carrito <i class="fas fa-shopping-cart"></i></a>
+                            <?php else: ?>
+                                <a>Añadir al carrito <i class="fas fa-shopping-cart"></i></a>
+                            <?php endif; ?>
+                            
                         </div>
 
 
@@ -227,29 +238,50 @@
         <div class="center">
             <h2 class="section-title">-Que dicen nuestros clientes-</h2>
             <div data-aos="fade-right">
-                <div class="review-container">
-                    <div class="review-card">
-                        <img src="./Assets/Img/Person1.jfif" alt="Persona1">
-                        <h2>Roberto</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae laudantium veniam, amet vero earum nostrum pariatur totam modi!</p>
-                        <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                    </div> 
-                    
-                    <div class="review-card">
-                    <img src="./Assets/Img/Person2.jfif" alt="Persona1">
-                        <h2>Jimena</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae laudantium veniam, amet vero earum nostrum pariatur totam modi!</p>
-                        <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
-                    </div> 
+                <div class="swiper reviews-slider">
 
-                    <div class="review-card">
-                    <img src="./Assets/Img/Person3.jfif" alt="Persona1">
-                        <h2>Maximiliano</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae laudantium veniam, amet vero earum nostrum pariatur totam modi!</p>
-                        <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                    </div> 
+                    <div class="swiper-wrapper">
+                        
+                            <div class="swiper-slide box">
+                                <img src="./Assets/Img/Person1.jfif" alt="">
+                                <h3>Tiziano</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
+                            </div>
+                            <div class="swiper-slide box">
+                                <img src="./Assets/Img/Person2.jfif" alt="">
+                                <h3>Yamila</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
+                            </div>
+                            <div class="swiper-slide box">
+                                <img src="./Assets/Img/Person3.jfif" alt="">
+                                <h3>Marcelo</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
+                            </div>
+                            <div class="swiper-slide box">
+                                <img src="./Assets/Img/Person4.jfif" alt="">    
+                                <h3>Rodrigo</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
+                            </div>
+                            <div class="swiper-slide box">
+                                <img src="./Assets/Img/Person5.jfif" alt="">
+                                <h3>Mónica</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
+                            </div>
+                            <div class="swiper-slide box">
+                                <img src="./Assets/Img/Person6.jfif" alt="">
+                                <h3>Mariana</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
+                            </div>
+                            </div>
+                    </div>
+
+
+                    <div class="swiper-pagination"></div>
                 </div>
-            </div>
+
+
+                </div>
+           
            
         </div>
     </section>
@@ -317,7 +349,10 @@
 
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="./Main.js"></script>
+    
+
 
   
 </body>
