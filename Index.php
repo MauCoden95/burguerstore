@@ -1,5 +1,6 @@
 <?php
     require_once('./Config/Connection.php');
+    require_once('./Functionalities/Helpers.php');
     session_start();
 
    
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./Assets/Styles.css">
     <link rel="shortcut icon" href="./Assets/Img/Logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7483adbd94.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
@@ -72,6 +74,44 @@
         
     </section>
 
+    <section id="cart">
+        <i class="fas fa-times close closeCart"></i>
+        <div class="cart_table">
+            <h2>Mi carrito de compras</h2>
+
+            <?php if(isset($_SESSION['carrito'])) : ?>
+                <table class="table">
+                <thead class="fs-3 text-center">
+                    <tr>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                    <?php foreach ($_SESSION['carrito'] as $key): ?>
+                        <tr class="fs-3 text-center">
+                            <td class="w-25">
+                                <img style="width: 3rem;" src="./Assets/Img/<?= $key['img'] ?>">
+                            </td>
+                            <td class="w-25">
+                                <?= $key['name'] ?>
+                            </td>
+                            <td class="w-25"><?= $key['price'] ?></td>
+                            <td class="w-25"><?= $key['quantity'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                   
+                </tbody>
+            </table>
+            <?php else: ?>
+                <h2>No hay productos agregados al carrito</h2>
+            <?php endif; ?>
+            
+        </div>
+    </section>
+
     <section id="div-contact-header">
         <div class="center">
             <div class="div-contact-header-1">
@@ -83,8 +123,9 @@
                 <a href="" class="fab fa-instagram"></a>
                 <a href="" class="fab fa-twitter"></a>
                 <a href="" class="fab fa-linkedin"></a>
-                <?php if(isset($_SESSION['identity'])) : ?>
-                    <button class="div-contact-header-2-cart">(0)<i class="fas fa-shopping-cart"></i></button>
+                <?php if(logged()) : ?>
+                   
+                    <button class="div-contact-header-2-cart">(<?php isset($_SESSION['carrito']) ? print_r(count($_SESSION['carrito'])) : 0 ?>)<i class="fas fa-shopping-cart"></i></button>
                     <button class="div-contact-header-2-a"><?= $_SESSION['identity']['email'] ?></button>
                 <?php else: ?>
                     <button class="div-contact-header-2-a">Login</button>    
@@ -203,25 +244,37 @@
     <section id="menu">
         <div class="center">
             <h2 class="section-title">-Menú-</h2>
-            <p>Tenés que estar logueado para agregar productos al carrito</p>
+            <?php if(!logged()) : ?>
+                <p>Tenés que estar logueado para agregar productos al carrito</p>
+            <?php endif; ?>
             <div data-aos="fade-up">
                 <div class="menu-container">
                     <?php
-                        $query = mysqli_query($connection,"SELECT * FROM burguers");
+                        $query = mysqli_query($connection,"SELECT * FROM burguers ORDER BY price ASC");
                         while ($view = mysqli_fetch_assoc($query)):                    
                     ?>
                         
                         <div class="menu-container__card">
                             <img src="./Assets/Img/<?= $view['image'] ?>">
-                            <input type="text" name="name" placeholder="<?= $view['name'] ?>" class="ipt_name" readonly disabled>
-                            <input type="number" name="price" placeholder="<?= $view['price'] ?>" class="ipt_price" readonly disabled>
-                            <input type="text" name="image" placeholder="<?= $view['image'] ?>" class="ipt_img">
+                            <?php if(logged()) : ?>
+                            <form action="./Functionalities/Cart.php" method="POST">
+                                <input type="text" name="name" value="<?= $view['name'] ?>" class="ipt_name" readonly >
+                                <input type="text" name="price" value="<?= $view['price'] ?>" class="ipt_price" readonly >
+                                <input type="text" name="image" value="<?= $view['image'] ?>" class="ipt_img">
 
-                            <?php if(isset($_SESSION['identity'])) : ?>
-                                <a href="./Functionalities/Cart.php">Añadir al carrito <i class="fas fa-shopping-cart"></i></a>
+                                <button type="submit">Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
+                                
+                                    
+                            </form>
                             <?php else: ?>
-                                <a>Añadir al carrito <i class="fas fa-shopping-cart"></i></a>
+                                <input type="text" name="name" placeholder="<?= $view['name'] ?>" class="ipt_name" readonly disabled>
+                                <input type="text" name="price" placeholder="<?= $view['price'] ?>" class="ipt_price" readonly disabled>
+                                <input type="text" name="image" placeholder="<?= $view['image'] ?>" class="ipt_img">
+
+                                <button>Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
                             <?php endif; ?>
+                            
+                            
                             
                         </div>
 
@@ -354,7 +407,7 @@
     
 
 
-  
+   
 </body>
 </html>
 

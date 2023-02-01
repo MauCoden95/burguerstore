@@ -45,3 +45,20 @@ var swiper = new Swiper(".reviews-slider", {
        },
     },
  });
+
+
+ 
+ 
+ 
+ const btnCart = document.querySelector('.div-contact-header-2-cart');
+ const cart = document.querySelector('#cart');
+ const cartClose = document.querySelector('.closeCart');
+
+
+btnCart.addEventListener('click', () => {
+    cart.style.top = "0";
+});
+
+cartClose.addEventListener('click', () => {
+    cart.style.top = "-150rem";
+});
