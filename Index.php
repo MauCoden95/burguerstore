@@ -80,33 +80,39 @@
             <h2>Mi carrito de compras</h2>
 
             <?php if(isset($_SESSION['carrito'])) : ?>
-                <table class="table">
-                <thead class="fs-3 text-center">
-                    <tr>
-                    <th scope="col">Imagen</th>
-                    <th scope="col">Producto</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Cantidad</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-                    <?php foreach ($_SESSION['carrito'] as $key): ?>
-                        <tr class="fs-3 text-center">
-                            <td class="w-25">
-                                <img style="width: 3rem;" src="./Assets/Img/<?= $key['img'] ?>">
-                            </td>
-                            <td class="w-25">
-                                <?= $key['name'] ?>
-                            </td>
-                            <td class="w-25"><?= $key['price'] ?></td>
-                            <td class="w-25"><?= $key['quantity'] ?></td>
+                <table class="table w-100 m-auto">
+                    <thead class="fs-3 text-center">
+                        <tr>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
                         </tr>
-                    <?php endforeach; ?>
-                   
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody></tbody>
+                        <?php foreach ($_SESSION['carrito'] as $key): ?>
+                            <tr class="fs-3 text-center">
+                                <td class="w-25">
+                                    <img style="width: 3rem;" src="./Assets/Img/<?= $key['img'] ?>">
+                                </td>
+                                <td class="w-25">
+                                    <?= $key['name'] ?>
+                                </td>
+                                <td class="w-25"><?= $key['price'] ?></td>
+                                <td class="w-25"><?= $key['quantity'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>                    
+                    </tbody>
+                </table>
+                        <?php $sum = 0;
+                            foreach ($_SESSION['carrito'] as $cart): ?>
+                                <?php $sum += $cart['price'];  ?>
+                            <?php endforeach; ?>
+
+                        <a href="./Functionalities/ClearCart.php">Vaciar carrito</a>
+                        <h4>Total a pagar: <?= $sum ?> $</h4>
             <?php else: ?>
-                <h2>No hay productos agregados al carrito</h2>
+                <h4>No hay productos agregados al carrito</h4>
             <?php endif; ?>
             
         </div>
@@ -125,7 +131,7 @@
                 <a href="" class="fab fa-linkedin"></a>
                 <?php if(logged()) : ?>
                    
-                    <button class="div-contact-header-2-cart">(<?php isset($_SESSION['carrito']) ? print_r(count($_SESSION['carrito'])) : 0 ?>)<i class="fas fa-shopping-cart"></i></button>
+                    <button class="div-contact-header-2-cart">(<?php isset($_SESSION['carrito']) ? print_r(count($_SESSION['carrito'])) : print_r("0") ?>)<i class="fas fa-shopping-cart"></i></button>
                     <button class="div-contact-header-2-a"><?= $_SESSION['identity']['email'] ?></button>
                 <?php else: ?>
                     <button class="div-contact-header-2-a">Login</button>    
@@ -267,8 +273,8 @@
                                     
                             </form>
                             <?php else: ?>
-                                <input type="text" name="name" placeholder="<?= $view['name'] ?>" class="ipt_name" readonly disabled>
-                                <input type="text" name="price" placeholder="<?= $view['price'] ?>" class="ipt_price" readonly disabled>
+                                <input type="text" name="name" placeholder="<?= $view['name'] ?>" class="ipt_name" readonly >
+                                <input type="text" name="price" placeholder="<?= $view['price'] ?>" class="ipt_price" readonly >
                                 <input type="text" name="image" placeholder="<?= $view['image'] ?>" class="ipt_img">
 
                                 <button>Añadir al carrito <i class="fas fa-shopping-cart"></i></button>
