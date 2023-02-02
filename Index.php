@@ -266,6 +266,7 @@
                             <img src="./Assets/Img/<?= $view['image'] ?>">
                             <?php if(logged()) : ?>
                             <form action="./Functionalities/Cart.php" method="POST">
+                                <input type="text" name="id" value="<?= $view['id'] ?>" class="ipt_img">
                                 <input type="text" name="name" value="<?= $view['name'] ?>" class="ipt_name" readonly >
                                 <input type="text" name="price" value="<?= $view['price'] ?>" class="ipt_price" readonly >
                                 <input type="text" name="image" value="<?= $view['image'] ?>" class="ipt_img">

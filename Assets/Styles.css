@@ -554,6 +554,7 @@ body{
 
 
 .ipt_price{
+    width: 100%;
     font-size: 2rem;
     text-align: center;
     margin: 2rem auto;
@@ -561,6 +562,7 @@ body{
 }
 
 .ipt_name{
+    width: 100%;
     color: #f9b209;
     font-size: 2.5rem;
     text-align: center;
@@ -982,5 +984,9 @@ body{
     .contact-container iframe,
     .contact-div{
         width: 100%;
+    }
+
+    .ipt_name{
+        font-size: 1.5rem;
     }
 }
