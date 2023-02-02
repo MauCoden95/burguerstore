@@ -26,7 +26,7 @@
         <i class="fas fa-times close"></i>
         <div class="div_forms">
             <?php if(isset($_SESSION['identity'])) : ?>
-                <form action="" method="POST" autocomplete="off">
+                <form action="./Functionalities/Update.php" method="POST" autocomplete="off">
                     <h2>Actualizar datos</h2>
                     
                     <input type="email" name="email" placeholder="Correo Electrónico" required>
@@ -34,6 +34,8 @@
                     <input type="text" name="address" placeholder="Direccion" required>
                     <input type="password" name="password" placeholder="Contraseña" required>
                     <input type="submit" value="Actualizar datos">
+
+                    
 
                     <a href="./Functionalities/Logout.php" class="logout">Cerrar sesión</a>
                 </form>

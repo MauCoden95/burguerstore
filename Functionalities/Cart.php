@@ -26,6 +26,8 @@ session_start();
 
 $_SESSION['carrito']=$carrito_mio;
 
+		
+
 //aqui termina el carrito
 
 
